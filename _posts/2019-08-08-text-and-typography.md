@@ -2,7 +2,7 @@
 title: Text and Typography
 date: 2019-08-08 11:33:00 +0800
 categories: [Blogging, Tutorial]
-tags: [typography]
+tags: [usage]
 seo:
   date_modified: 2019-08-28 00:37:25 +0800
 ---

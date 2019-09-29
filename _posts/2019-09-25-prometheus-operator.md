@@ -1,5 +1,5 @@
 ---
-title: "Prometheus-operator"
+title: "Prometheus-operato"
 date: 2019-09-25 17:33:00 +0800
 categories: [Blogging, Tutorial]
 tags: [typography]
