@@ -5,7 +5,7 @@ categories: [Blogging, Tutorial]
 tags: [usage]
 toc: false
 seo:
-  date_modified: 2019-08-23 19:27:39 +0800
+  date_modified: 2019-09-29 14:03:41 +0800
 ---
 
 The image files of Favicon[^favicon] is placed in `assets/img/favicons`. You may need to replace them with your own. So let's see how to customize these Favicons.

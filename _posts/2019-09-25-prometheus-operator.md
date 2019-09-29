@@ -1,8 +1,10 @@
 ---
-title: "Prometheus-operato"
+title: Prometheus-operato
 date: 2019-09-25 17:33:00 +0800
 categories: [Blogging, Tutorial]
 tags: [typography]
+seo:
+  date_modified: 2019-09-29 14:03:41 +0800
 ---
 
 This Jekyll template totally compatible with Markdown syntax. Now, let's take a look for the text and typography in this theme.
