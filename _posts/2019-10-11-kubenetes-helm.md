@@ -13,10 +13,11 @@ seo:
 对于使用者而言，使用Helm后不用需要了解Kubernetes的Yaml语法并编写应用部署文件，可以通过Helm下载并在kubernetes上安装需要的应用。
 
 除此以外，Helm还提供了kubernetes上的软件部署，删除，升级，回滚应用的强大功能。
+
 ##helm
 ***
 
-####安装实践
+###安装实践
 1.kubeasz部署的kubenetes集群在/etc/ansible/bin下面有helm的二进制文件，可以直接拿来使用
 2.部署tiller的时候helm init可能会失败，换阿里的源即可：
 
