@@ -4,7 +4,7 @@ date: 2019-10-11 14:27:00 +0800
 categories: [Blogging, Tutorial]
 tags: [kubenetes]
 seo:
-  date_modified: 2019-10-11 14:27:41 +0800
+  date_modified: 2019-10-11 17:30:55 +0800
 ---
 
 ##

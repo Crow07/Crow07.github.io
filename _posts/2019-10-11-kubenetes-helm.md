@@ -4,7 +4,7 @@ date: 2019-10-11 14:27:00 +0800
 categories: [Blogging, Tutorial]
 tags: [kubenetes]
 seo:
-  date_modified: 2019-10-11 14:27:41 +0800
+  date_modified: 2019-10-11 17:30:55 +0800
 ---
 我们可以将Helm看作Kubernetes下的apt-get/yum。Helm是Deis (https://deis.com/) 开发的一个用于kubernetes的包管理器。每个包称为一个Chart，一个Chart是一个目录（一般情况下会将目录进行打包压缩，形成name-version.tgz格式的单一文件，方便传输和存储）。
 
