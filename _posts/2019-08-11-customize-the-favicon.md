@@ -1,35 +1,39 @@
 ---
 title: Customize the Favicon
+author: Cotes Chung
 date: 2019-08-11 00:34:00 +0800
 categories: [Blogging, Tutorial]
-tags: [usage]
+tags: [favicon]
 toc: false
-seo:
-  date_modified: 2019-09-29 14:03:41 +0800
 ---
 
-The image files of Favicon[^favicon] is placed in `assets/img/favicons`. You may need to replace them with your own. So let's see how to customize these Favicons.
+In [**Chirpy**](https://github.com/cotes2020/jekyll-theme-chirpy/), the image files of [Favicons](https://www.favicon-generator.org/about/) are placed in `assets/img/favicons/`. You may need to replace them with your own. So let's see how to customize these Favicons.
 
-Whit a square image (PNG, JPG or GIF) in hand, open the site [*Favicon & App Icon Generator*](https://www.favicon-generator.org/) and upload your original image.
+With a square image (PNG, JPG or GIF) in hand, open the site [*Favicon & App Icon Generator*](https://www.favicon-generator.org/) and upload your original image.
 
-![upload-image]({{ site.baseurl }}/assets/img/sample/upload-image.png)
+![upload-image](https://cdn.jsdelivr.net/gh/cotes2020/chirpy-images/posts/20190811/upload-image.png)
 
-Wait and the website will automatically generate icons of various sizes.
+Click button <kbd>Create Favicon</kbd> and wait a moment for the website to generate the icons of various sizes automatically.
 
-![download-icons]({{ site.baseurl }}/assets/img/sample/download-icons.png)
+![download-icons](https://cdn.jsdelivr.net/gh/cotes2020/chirpy-images/posts/20190811/download-icons.png){: width="600"}
 
-Download the generated package and extract the icons to override the PNG files in directory `assets/img/favicons`
+Download the generated package, unzip and delete the following two from the extracted files:
 
-Rebuild the site so that the icon becomes your custom edition.
+- browserconfig.xml
+- manifest.json
 
-## See Also
+Now, copy the remaining image files (`.PNG` and `.ICO`) from the extracted `.zip` file to cover the original files in the folder `assets/img/favicons/`.
 
-* [Getting Started]({{ site.baseurl }}/posts/getting-started/)
-* [Write a new post]({{ site.baseurl }}/posts/write-a-new-post/)
-* [Text and Typography]({{ site.baseurl }}/posts/text-and-typography/)
+The following table helps you understand the changes to the icon file:
 
-<br>
+> ✓ means keep, ✗ means delete.
 
-***
+| File(s)             | From Favicon & App Icon Generator | From Chirpy |
+|---------------------|:---------------------------------:|:-----------:|
+| `*.PNG`             | ✓                                 | ✗           |
+| `*.ICO`             | ✓                                 | ✗           |
+| `browserconfig.xml` | ✗                                 | ✓           |
+| `manifest.json`     | ✗                                 | ✓           |
 
-[^favicon]: [What are favicons?](https://www.favicon-generator.org/about/)
+
+The next time you build the site, the icon will be replaced with a customized edition.

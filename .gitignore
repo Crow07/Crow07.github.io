@@ -1,11 +1,16 @@
+# hidden files
 .*
-*.pyc
+!.github
 
-# jekyll debug
+# jekyll cache
 _site
+vendor
 
-# Jeykll Gemfile.lock
-Gemfile.lock
+# rubygem
+*.gem
+# yard docs
+doc
 
-# yui-compressor
-*.jar
+# npm dependencies
+node_modules
+package-lock.json

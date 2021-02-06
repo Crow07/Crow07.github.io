@@ -1,5 +1,6 @@
 <!--
   The Disqus lazy loading.
+<<<<<<< HEAD
   Powered by: https://osvaldas.info/lazy-loading-disqus-comments
   © 2019 Cotes Chung
   MIT License
@@ -16,9 +17,32 @@
 
     disqusConfig: function() {
       this.page.url = '{{ site.url | append: site.baseurl | append: page.url }}';
+=======
+  Powered by: <https://github.com/osvaldasvalutis/disqusLoader.js>
+-->
+
+<div id="disqus" class="pt-2 pb-2">
+  <p class="text-center text-muted small pb-5">
+    Loading comments from <a href="https://disqus.com/">Disqus</a> ...
+  </p>
+</div>
+
+<script src="{{ '/assets/js/lib/jquery.disqusloader.min.js' | relative_url }}"></script>
+<script>
+  const options = {
+    scriptUrl: '//{{ site.disqus.shortname }}.disqus.com/embed.js',
+
+    disqusConfig: function() {
+      this.page.title = '{{ page.title }}';
+      this.page.url = '{{ page.url | absolute_url }}';
+>>>>>>> ec6d30fc670769422e05fec5e7705acab31f6170
       this.page.identifier = '{{ page.url }}';
     }
   };
 
   $.disqusLoader('#disqus', options);
+<<<<<<< HEAD
 </script>
+=======
+</script>
+>>>>>>> ec6d30fc670769422e05fec5e7705acab31f6170

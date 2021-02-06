@@ -1,72 +1,103 @@
-# The Site Settings
-# © 2017-2019 Cotes Chung
-# MIT licensed
+# The Site Configuration
 
+# Import the theme
+theme: jekyll-theme-chirpy
+
+# Only if your site type is GitHub Project sites and doesn't have a custom domain,
+# change below value to '/projectname'.
+baseurl: ''
+
+# the HTML language tag › https://www.w3.org/International/questions/qa-choosing-language-tags
+lang: en-US
+
+# Change to your timezone › http://www.timezoneconverter.com/cgi-bin/findzone/findzone
+timezone: Asia/Shanghai
 
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
-#--------------------------
+# --------------------------
+title: Chirpy                          # the main title
 
-title: Crow
+tagline: A text-focused Jekyll theme   # it will display as the sub-title
 
-description: 'Focusing'
+description: >-                        # used by seo meta and the atom feed
+  A minimal, portfolio, sidebar,
+  bootstrap Jekyll theme with responsive web design
+  and focuses on text presentation.
 
-# Replace with your domain, e.g. "https://username.github.io"
-url: 'https://crow07.github.io'
+# fill in the protocol & hostname for your site, e.g., 'https://username.github.io'
+url: ''
 
-author: crow                      # change to your full name
-
-logo: /assets/img/sample/profile.jpg    # Support network resources.
+author: your_full_name                  # change to your full name
 
 github:
-  username: Crow07             # change to your github username
+  username: github_username             # change to your github username
 
-#twitter:
-#  username: Crow07            # change to your twitter username
+twitter:
+  username: twitter_username            # change to your twitter username
 
 social:
-  name: crow                         # change to your full name
-  email: hancrow07@gmail.com             # change to your email address
+  name: your_full_name                  # it will shows as the copyright owner in Footer
+  email: example@doamin.com             # change to your email address
   links:
-    # - https://twitter.com/username      # change to your twitter homepage
-    - https://github.com/Crow07       # change to your github homepage
+    # The first element serves as the copyright owner's link
+    - https://twitter.com/username      # change to your twitter homepage
+    - https://github.com/username       # change to your github homepage
+    # Uncomment below to add more social links
     # - https://www.facebook.com/username
     # - https://www.linkedin.com/in/username
 
 google_site_verification: google_meta_tag_verification # change to your verification string
+# --------------------------
 
-#--------------------------
-
-# Change to your Google Analytics ID
 google_analytics:
-  id: 'UA-*********-*'
-  # Switch for Google Analytics pageviews. DO NOT enable it unless you know how to deploy the Google Analytics superProxy.
-  pv: false
+  id: ''          # Fill with your Google Analytics ID
+  pv:
+    # The Google Analytics pageviews switch.
+    # DO NOT enable it unless you know how to deploy the Google Analytics superProxy.
+    enabled: false
+    # the next options only valid when `google_analytics.pv` is enabled.
+    proxy_url: ''
+    proxy_endpoint: ''
+    cache: false  # pv data local cache, good for the users from GFW area.
 
-disqus:
-  shortname: 'disqus'   # Change to your Disqus shortname.
-  comments: true        # boolean type, the gobal switch of posts' comments.
+# Prefer color scheme setting.
+#
+# Note: Keep empty will follow the system prefer color by default,
+# and there will be a toggle to switch the theme between dark and light
+# on the bottom left of the sidebar.
+#
+# Available options:
+#
+#     light  - Use the light color scheme
+#     dark   - Use the dark color scheme
+#
+theme_mode:   # [light|dark]
 
-# The year your website was first run.
-first_run: 2019
+# The CDN endpoint for images.
+# Notice that once it is assigned, the CDN url
+# will be added to all image (site avatar & posts' images) paths starting with '/'
+#
+# e.g. 'https://cdn.com'
+img_cdn: ''
 
-# boolean type, gobal switch for ToC in posts.
+# the avatar on sidebar, support local or CORS resources
+avatar: https://cdn.jsdelivr.net/gh/cotes2020/chirpy-images/commons/avatar.jpg
+
+# boolean type, the global switch for ToC in posts.
 toc: true
 
-
-# if your site type is Project Pages site, change below value to '/projectname'
-baseurl: ''
+disqus:
+  comments: false  # boolean type, the global switch for posts comments.
+  shortname: ''    # Fill with your Disqus shortname. › https://help.disqus.com/en/articles/1717111-what-s-a-shortname
 
 paginate: 10
 
-markdown: kramdown
-
-highlighter: rouge
+# ------------ The following options are not recommended to be modified ------------------
 
 kramdown:
-  input: GFM
   syntax_highlighter: rouge
-  syntax_highlighter_opts: # Rouge Options › https://github.com/jneen/rouge#full-options
-    css_class: 'highlight'
+  syntax_highlighter_opts:   # Rouge Options › https://github.com/jneen/rouge#full-options
+    css_class: highlight
     # default_lang: console
     span:
       line_numbers: false
@@ -74,22 +105,25 @@ kramdown:
       line_numbers: true
       start_line: 1
 
+# DO NOT change this unless you're a Pro user on Jekyll and Web development,
+# Or you think you're smart enough to change other relevant URLs within this template.
 permalink: /posts/:title/
+
+collections:
+  tabs:
+    output: true
+    sort_by: order
+
 
 defaults:
   -
     scope:
-      path: ""          # An empty string here means all files in the project
+      path: ''          # An empty string here means all files in the project
       type: posts
     values:
       layout: post
       comments: true    # Enable comments in posts.
       toc: true         # Display TOC column in posts.
-      location: Post
-      breadcrumb:
-        -
-          label: Posts
-          url: /
   -
     scope:
       path: _drafts
@@ -97,76 +131,44 @@ defaults:
       comments: false
   -
     scope:
-      path: tags
-    values:
-      location: Tag
-      breadcrumb:
-        -
-          label: Home
-          url: /
-        -
-          label: Tags
-          url: /tabs/tags/
-  -
-    scope:
-      path: categories
-    values:
-      location: Category
-      breadcrumb:
-        -
-          label: Home
-          url: /
-        -
-          label: Categories
-          url: /tabs/categories/
-  -
-    scope:
-      path: tabs
+      path: ''
+      type: tabs             # see `site.collections`
     values:
       layout: page
-      dynamic_title: true    # hide title in mobile screens.
-      breadcrumb:
-        -
-          label: Home
-          url: /
-
-timezone: Asia/Shanghai
+      permalink: /:title/
+      dynamic_title: true    # Hide title in mobile screens.
 
 sass:
-  sass_dir: /assets/css
   style: compressed
 
 compress_html:
   clippings: all
-  comments: ["<!-- ", " -->"]
-  endings: [html, head, body, dt, dd, rt, rp, optgroup, option, colgroup, caption, thead, tbody, tfoot, tr, td, th]
+  comments: all
+  endings: all
   profile: false
   blanklines: false
   ignore:
-    envs: []
-
-jekyll_timeago:
-  depth: 1
-  default_locale: 'en'
-  fallbacks: true
-
+    envs: [development]
 
 exclude:
-  - vendor/       # Avoid Jekyll mistakenly read the vender directory in Travis-CI's VM .
-  - Gemfile.lock
+  - vendor
   - Gemfile
-  - run.sh
-  - build.sh
-  - init.sh
-  - pv.sh
+  - Gemfile.lock
+  - jekyll-theme-chirpy.gemspec
+  - tools
+  - docs
+  - README.md
+  - LICENSE
+  - gulpfile.js
+  - node_modules
+  - package.json
+  - package-lock.json
 
-sitemap_exclude:  # Sitemap will exclude the following items.
-  - /norobots/
-  - /assets/
-  - /tabs/
-  - /categories/
-  - /tags/
-  - /posts/
-  - /404.html
-  - /redirects.json
-  - /search.json
+jekyll-archives:
+  enabled: [categories, tags]
+  layouts:
+    category: category
+    tag: tag
+  permalinks:
+    tag: /tags/:name/
+    category: /categories/:name/

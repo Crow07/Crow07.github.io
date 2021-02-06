@@ -1,15 +1,14 @@
 ---
-title: Write a new Post
+title: Writing a New Post
+author: Cotes Chung
 date: 2019-08-08 14:10:00 +0800
 categories: [Blogging, Tutorial]
-tags: [usage]
-seo:
-  date_modified: 2019-09-29 14:03:41 +0800
+tags: [writing]
 ---
 
 ## Naming and Path
 
-Create a new file name with the format `YYYY-MM-DD-title.md` then put it into `_post` of the root directory.
+Create a new file named `YYYY-MM-DD-TITLE.EXTENSION` and put it in the `_posts/` of the root directory. Please note that the `EXTENSION` must be one of `md` and `markdown`.
 
 ## Front Matter
 
@@ -20,39 +19,34 @@ Basically, you need to fill the [Front Matter](https://jekyllrb.com/docs/front-m
 title: TITLE
 date: YYYY-MM-DD HH:MM:SS +/-TTTT
 categories: [TOP_CATEGORIE, SUB_CATEGORIE]
-tags: [TAG]
+tags: [TAG]     # TAG names should always be lowercase
 ---
 ```
 
 > **Note**: The posts' ***layout*** has been set to `post` by default, so there is no need to add the variable ***layout*** in Front Matter block.
 
+### Timezone of date
+
+In order to accurately record the release date of a post, you should not only setup the `timezone` of `_config.yml` but also provide the the post's timezone in field `date` of its Front Matter block. Format: `+/-TTTT`, e.g. `+0800`.
+
 ### Categories and Tags
 
-The pages for all the categories and tags are placed in the `categoreis` and `tags` respectively.
-
-Let's say there is a post with title `The Beautify Rose`, it's Front Matter as follow:
+The `categories` of each post is designed to contain up to two elements, and the number of elements in `tags` can be zero to infinity. For instance:
 
 ```yaml
----
-title: "The Beautify Rose"
-categories: [Plant]
-tags: [flower]
----
+categories: [Animal, Insect]
+tags: [bee]
 ```
-
-> **Note**: `categories` is designed to contain up to two elements.
-
 
 ## Table of Contents
 
-By default, the **T**able **o**f **C**ontents (TOC) is displayed on the right panel of the post. If you want to turn it off globally, go to `_config.yml` and set the variable `toc` to `false`. If you want to turn off TOC for specific post, add the following to post's [Front Matter](https://jekyllrb.com/docs/front-matter/):
+By default, the **T**able **o**f **C**ontents (TOC) is displayed on the right panel of the post. If you want to turn it off globally, go to `_config.yml` and set the value of variable `toc` to `false`. If you want to turn off TOC for specific post, add the following to post's [Front Matter](https://jekyllrb.com/docs/front-matter/):
 
 ```yaml
 ---
 toc: false
 ---
 ```
-
 
 ## Comments
 
@@ -64,10 +58,120 @@ comments: false
 ---
 ```
 
+## Mathematics
+
+For website performance reasons, the mathematical feature won't be loaded by default. But it can be enabled by:
+
+```yaml
+---
+math: true
+---
+```
+
+## Mermaid
+
+[**Mermaid**](https://github.com/mermaid-js/mermaid) is a great diagrams generation tool. To enable it on your post, add the following to the YAML block:
+
+```yml
+---
+mermaid: true
+---
+```
+
+Then you can use it like other markdown language: surround the graph code with ```` ```mermaid ```` and ```` ``` ````.
+
+## Images
+
+### Preview image
+
+If you want to add an image to the top of the post contents, specify the url and alt attribute for the image:
+
+```yaml
+---
+image:
+  src: /path/to/image/file
+  alt: image alternative text
+---
+```
+
+### Image caption
+
+Add italics to the next line of an image，then it will become the caption and appear at the bottom of the image:
+
+```markdown
+![img-description](/path/to/image)
+_Image Caption_
+```
+
+### Image size
+
+You can specify the width (and height) of a image with `width`:
+
+```markdown
+![Desktop View](/assets/img/sample/mockup.png){: width="400"}
+```
+
+### Image position
+
+By default, the image is centered, but you can specify the position by using one of class `normal` , `left` and `right`. For example:
+
+- **Normal position**
+
+  Image will be left aligned in below sample:
+
+  ```markdown
+  ![Desktop View](/assets/img/sample/mockup.png){: .normal}
+  ```
+
+- **Float to the left**
+
+  ```markdown
+  ![Desktop View](/assets/img/sample/mockup.png){: .left}
+  ```
+
+- **Float to the right**
+
+  ```markdown
+  ![Desktop View](/assets/img/sample/mockup.png){: .right}
+  ```
+
+**Limitation**: Once you specify the position of an image, it is forbidden to add the image caption.
+
+### CDN URL
+
+If you host the images on the CDN, you can save the time of repeatedly writing the CDN url by assigning the variable `img_cdn` of `_config.yml` file:
+
+```yaml
+img_cdn: https://cdn.com
+```
+
+Once `img_cdn` is assigned, the CDN url will be added to the path of all images (images of site avatar and posts) starting with `/`.
+
+For instance, when using images:
+
+```markdown
+![The flower](/path/to/flower.png)
+```
+
+The parsing result will automatically add the CDN prefix `https://cdn.com` before the image path:
+
+```html
+<img src="https://cdn.com/path/to/flower.png" alt="The flower">
+```
+
+## Pinned Posts
+
+You can pin one or more posts to the top of the home page, and the fixed posts are sorted in reverse order according to their release date. Enable by:
+
+```yaml
+---
+pin: true
+---
+```
 
 ## Code Block
 
-Markdown symbols <code class="highlighter-rouge">```</code> can easily create a code block as following examples.
+Markdown symbols ```` ``` ```` can easily create a code block as following examples.
 
 ```
 This is a common code snippet, without syntax highlight and line number.
@@ -75,7 +179,7 @@ This is a common code snippet, without syntax highlight and line number.
 
 ## Specific Language
 
-Using <code class="highlighter-rouge">```Language</code> you will get code snippets with line Numbers and syntax highlight.
+Using ```` ```language ```` you will get code snippets with line numbers and syntax highlight.
 
 > **Note**: The Jekyll style `{% raw %}{%{% endraw %} highlight LANGUAGE {% raw %}%}{% endraw %}` or `{% raw %}{%{% endraw %} highlight LANGUAGE linenos {% raw %}%}{% endraw %}` are not allowed to be used in this theme !
 
@@ -88,7 +192,7 @@ items:
       quantity:  4
 ```
 
-#### Liquid codes
+### Liquid Codes
 
 If you want to display the **Liquid** snippet, surround the liquid code with `{% raw %}{%{% endraw %} raw {%raw%}%}{%endraw%}` and `{% raw %}{%{% endraw %} endraw {%raw%}%}{%endraw%}` .
 
@@ -101,10 +205,6 @@ If you want to display the **Liquid** snippet, surround the liquid code with `{%
 {% endraw %}
 
 ## Learn More
+
 For more knowledge about Jekyll posts, visit the [Jekyll Docs: Posts](https://jekyllrb.com/docs/posts/).
 
-## See Also
-
-* [Getting Started]({{ site.baseurl }}/posts/getting-started/)
-* [Text and Typography]({{ site.baseurl }}/posts/text-and-typography/)
-* [Customize the Favicon]({{ site.baseurl }}/posts/customize-the-favicon/)

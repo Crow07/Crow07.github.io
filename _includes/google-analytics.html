@@ -1,5 +1,6 @@
 <!--
   The GA snippet
+<<<<<<< HEAD
   © 2017-2019 Cotes Chung
   MIT License
 -->
@@ -11,4 +12,17 @@
 
   ga('create', '{{ site.google_analytics.id }}', 'auto');
   ga('send', 'pageview');
+=======
+-->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script defer src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics.id }}"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+
+    gtag('js', new Date());
+    gtag('config', '{{ site.google_analytics.id }}');
+  });
+>>>>>>> ec6d30fc670769422e05fec5e7705acab31f6170
 </script>
